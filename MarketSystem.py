@@ -13,11 +13,11 @@ class Bucket:
         self.bucket_list = []
         self.balance = Balance(client_fname, client_lname, mony)
 
-    def __overall_sum(self, product):
-        overall_amount = 0
+    def __overall_sum(self):
+        overall_sum = 0
         for product_in_bucket in self.bucket_list:
-           overall_amount += product_in_bucket.amount
-        return overall_amount
+            overall_sum += product_in_bucket.amount
+        return overall_sum
 
     def throw_to_bucket(self, product_name, amount_product, price_product):
         for product in self.bucket_list:
@@ -44,12 +44,11 @@ class Bucket:
         else:
             print(f'Продукту {product_name} не знайдено в корзині')
     def buy_products(self):
-        overall_sum = 0
-        for product in self.bucket_list:
-            overall_sum += self.__overall_sum(product)
-        if self.balance.mony >= overall_sum:
-            self.balance.mony -= overall_sum
-            print(f'Продукти які ви купили:{self.bucket_list}')
+        overall_price = self.__overall_sum()  
+        if self.balance.mony >= overall_price:
+            self.balance.mony -= overall_price
+            product_names = [product.product for product in self.bucket_list]
+            print(f'Продукти, які ви купили: {product_names} та скілтки ви заплатили за це {overall_price}')
             self.bucket_list.clear()
         else:
             print('На вашому балансі не достатньо грошей')
