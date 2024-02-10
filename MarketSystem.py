@@ -13,7 +13,6 @@ class Bucket:
         self.bucket_list = []
         self.balance = Balance(client_fname, client_lname, mony)
         
-
     def __overall_sum(self):
         overall_sum = 0
         for product_in_bucket in self.bucket_list:
