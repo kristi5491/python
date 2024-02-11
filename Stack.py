@@ -13,14 +13,15 @@ class Stack:
         else:
             print('такої цифри нема в стеку')
     def delate_last_num(self):
-        self.__stack.pop()
-        print(f'ваще число видалено з списку. ocь оновлений лист {self.__stack}')
+        if not self.__check_is_empty:
+            self.__stack.pop()
+            print(f'ваще число видалено з списку. ocь оновлений лист {self.__stack}')
+        else:
+            print("стек пустий")
 
-    def check_is_empty(self):
+    def __check_is_empty(self):
         if not self.__stack:
             print(f'ваш стек пустий []')
-        else:
-            print('ваш список НЕ пустий')
 
 stack = Stack()
 stack.add_to_stack(5)
@@ -31,5 +32,4 @@ stack.delate_last_num()
 stack.delate_last_num()
 stack.delate_last_num()
 
-stack.check_is_empty()
 
