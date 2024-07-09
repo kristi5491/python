@@ -1,4 +1,4 @@
-My implementations of algorithms and data structures in Python.
+My implementations of Algorithms and Data Structures in Python.
 
 I also have some small projects.
 
